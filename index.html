@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>omz-git-aliases</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="tufte.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 40%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Alias</th>
+<th>Command</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>grt</code></td>
+<td><code>cd "$(git rev-parse --show-toplevel \|\| echo .)"</code></td>
+<td>Changes directory to the root directory of the current Git repository.</td>
+</tr>
+<tr class="even">
+<td><code>ggpnp</code></td>
+<td><code>ggl &amp;&amp; ggp</code></td>
+<td>Shortcut for executing <code>ggl</code> (Git Graph) and then <code>ggp</code> (Git Pull).</td>
+</tr>
+<tr class="odd">
+<td><code>ggpur</code></td>
+<td><code>ggu</code></td>
+<td>Shortcut for executing <code>ggu</code> (Git Pull Rebase).</td>
+</tr>
+<tr class="even">
+<td><code>g</code></td>
+<td><code>git</code></td>
+<td>Abbreviation for the <code>git</code> command.</td>
+</tr>
+<tr class="odd">
+<td><code>ga</code></td>
+<td><code>git add</code></td>
+<td>Adds changes to the staging area.</td>
+</tr>
+<tr class="even">
+<td><code>gaa</code></td>
+<td><code>git add --all</code></td>
+<td>Adds all changes, including untracked files, to the staging area.</td>
+</tr>
+<tr class="odd">
+<td><code>gapa</code></td>
+<td><code>git add --patch</code></td>
+<td>Starts adding changes interactively using patch mode.</td>
+</tr>
+<tr class="even">
+<td><code>gau</code></td>
+<td><code>git add --update</code></td>
+<td>Adds changes to the staging area, excluding untracked files.</td>
+</tr>
+<tr class="odd">
+<td><code>gav</code></td>
+<td><code>git add --verbose</code></td>
+<td>Adds changes to the staging area in a verbose mode.</td>
+</tr>
+<tr class="even">
+<td><code>gwip</code></td>
+<td><code>git add -A; git rm $(git ls-files --deleted) 2&gt; /dev/null; git commit --no-verify --no-gpg-sign --message "--wip-- [skip ci]"</code></td>
+<td>Stages all changes, removes deleted files, and commits with a message indicating a work-in-progress.</td>
+</tr>
+<tr class="odd">
+<td><code>gam</code></td>
+<td><code>git am</code></td>
+<td>Apply a series of patches from a mailbox.</td>
+</tr>
+<tr class="even">
+<td><code>gama</code></td>
+<td><code>git am --abort</code></td>
+<td>Abort a git am operation and restores the original branch and index state.</td>
+</tr>
+<tr class="odd">
+<td><code>gamc</code></td>
+<td><code>git am --continue</code></td>
+<td>Continue a git am operation after resolving conflicts.</td>
+</tr>
+<tr class="even">
+<td><code>gamscp</code></td>
+<td><code>git am --show-current-patch</code></td>
+<td>Show the current patch in a git am sequence.</td>
+</tr>
+<tr class="odd">
+<td><code>gams</code></td>
+<td><code>git am --skip</code></td>
+<td>Skip the current patch in a git am sequence.</td>
+</tr>
+<tr class="even">
+<td><code>gap</code></td>
+<td><code>git apply</code></td>
+<td>Apply a patch to files and/or to the index.</td>
+</tr>
+<tr class="odd">
+<td><code>gapt</code></td>
+<td><code>git apply --3way</code></td>
+<td>Apply a patch with 3-way merge.</td>
+</tr>
+<tr class="even">
+<td><code>gbs</code></td>
+<td><code>git bisect</code></td>
+<td>Use binary search to find the commit that introduced a bug.</td>
+</tr>
+<tr class="odd">
+<td><code>gbsb</code></td>
+<td><code>git bisect bad</code></td>
+<td>Mark the current commit as “bad” during a git bisect.</td>
+</tr>
+<tr class="even">
+<td><code>gbsg</code></td>
+<td><code>git bisect good</code></td>
+<td>Mark the current commit as “good” during a git bisect.</td>
+</tr>
+<tr class="odd">
+<td><code>gbsn</code></td>
+<td><code>git bisect new</code></td>
+<td>Start a new git bisect session.</td>
+</tr>
+<tr class="even">
+<td><code>gbso</code></td>
+<td><code>git bisect old</code></td>
+<td>Start a git bisect session from an old commit.</td>
+</tr>
+<tr class="odd">
+<td><code>gbsr</code></td>
+<td><code>git bisect reset</code></td>
+<td>Finish the current git bisect session and return to the original branch.</td>
+</tr>
+<tr class="even">
+<td><code>gbss</code></td>
+<td><code>git bisect start</code></td>
+<td>Start a git bisect session.</td>
+</tr>
+<tr class="odd">
+<td><code>gbl</code></td>
+<td><code>git blame -w</code></td>
+<td>Show what revision and author last modified each line of a file.</td>
+</tr>
+<tr class="even">
+<td><code>gb</code></td>
+<td><code>git branch</code></td>
+<td>List, create, or delete branches.</td>
+</tr>
+<tr class="odd">
+<td><code>gba</code></td>
+<td><code>git branch --all</code></td>
+<td>List all remote and local branches.</td>
+</tr>
+<tr class="even">
+<td><code>gbd</code></td>
+<td><code>git branch --delete</code></td>
+<td>Delete a specified branch.</td>
+</tr>
+<tr class="odd">
+<td><code>gbD</code></td>
+<td><code>git branch --delete --force</code></td>
+<td>Force deletion of a specified branch.</td>
+</tr>
+<tr class="even">
+<td><code>gbgd</code></td>
+<td><code>LANG=C git branch --no-color -vv \| grep ": gone\]" \| awk '"'"'{print $1}'"'"' \| xargs git branch -d</code></td>
+<td>Delete local branches that are remotely gone.</td>
+</tr>
+<tr class="odd">
+<td><code>gbgD</code></td>
+<td><code>LANG=C git branch --no-color -vv \| grep ": gone\]" \| awk '"'"'{print $1}'"'"' \| xargs git branch -D</code></td>
+<td>Force delete local branches that are remotely gone.</td>
+</tr>
+<tr class="even">
+<td><code>gbm</code></td>
+<td><code>git branch --move</code></td>
+<td>Move/rename a branch.</td>
+</tr>
+<tr class="odd">
+<td><code>gbnm</code></td>
+<td><code>git branch --no-merged</code></td>
+<td>List branches that are not yet merged.</td>
+</tr>
+<tr class="even">
+<td><code>gbr</code></td>
+<td><code>git branch --remote</code></td>
+<td>List remote branches.</td>
+</tr>
+<tr class="odd">
+<td><code>ggsup</code></td>
+<td><code>git branch --set-upstream-to=origin/$(git_current_branch)</code></td>
+<td>Set the upstream branch for the current branch.</td>
+</tr>
+<tr class="even">
+<td><code>gbg</code></td>
+<td><code>LANG=C git branch -vv \| grep ": gone\]"</code></td>
+<td>List local branches that are remotely gone.</td>
+</tr>
+<tr class="odd">
+<td><code>gco</code></td>
+<td><code>git checkout</code></td>
+<td>Switch branches or restore working tree files.</td>
+</tr>
+<tr class="even">
+<td><code>gcor</code></td>
+<td><code>git checkout --recurse-submodules</code></td>
+<td>Switch branches and recursively checkout submodules.</td>
+</tr>
+<tr class="odd">
+<td><code>gcb</code></td>
+<td><code>git checkout -b</code></td>
+<td>Create and switch to a new branch.</td>
+</tr>
+<tr class="even">
+<td><code>gcd</code></td>
+<td><code>git checkout $(git_develop_branch)</code></td>
+<td>Switch to the develop branch.</td>
+</tr>
+<tr class="odd">
+<td><code>gcm</code></td>
+<td><code>git checkout $(git_main_branch)</code></td>
+<td>Switch to the main branch.</td>
+</tr>
+<tr class="even">
+<td><code>gcp</code></td>
+<td><code>git cherry-pick</code></td>
+<td>Apply a commit from another branch.</td>
+</tr>
+<tr class="odd">
+<td><code>gcpa</code></td>
+<td><code>git cherry-pick --abort</code></td>
+<td>Abort the cherry-pick operation and return to the pre-cherry-pick state.</td>
+</tr>
+<tr class="even">
+<td><code>gcpc</code></td>
+<td><code>git cherry-pick --continue</code></td>
+<td>Continue the cherry-pick operation after resolving conflicts.</td>
+</tr>
+<tr class="odd">
+<td><code>gclean</code></td>
+<td><code>git clean --interactive -d</code></td>
+<td>Remove untracked files and directories interactively.</td>
+</tr>
+<tr class="even">
+<td><code>gcl</code></td>
+<td><code>git clone --recurse-submodules</code></td>
+<td>Clone a repository and initialize submodules.</td>
+</tr>
+<tr class="odd">
+<td><code>gccd</code></td>
+<td><code>git clone --recurse-submodules "$@" &amp;&amp; cd "$(basename $\_ .git)"</code></td>
+<td>Clone a repository with submodules and change directory to the repository.</td>
+</tr>
+<tr class="even">
+<td><code>gcam</code></td>
+<td><code>git commit --all --message</code></td>
+<td>Commit all changes with a specified message.</td>
+</tr>
+<tr class="odd">
+<td><code>gcas</code></td>
+<td><code>git commit --all --signoff</code></td>
+<td>Commit all changes and sign off on the commit.</td>
+</tr>
+<tr class="even">
+<td><code>gcasm</code></td>
+<td><code>git commit --all --signoff --message</code></td>
+<td>Commit all changes with signoff and a specified message.</td>
+</tr>
+<tr class="odd">
+<td><code>gcmsg</code></td>
+<td><code>git commit --message</code></td>
+<td>Commit with a specified message.</td>
+</tr>
+<tr class="even">
+<td><code>gcsm</code></td>
+<td><code>git commit --signoff --message</code></td>
+<td>Commit with signoff and a specified message.</td>
+</tr>
+<tr class="odd">
+<td><code>gc</code></td>
+<td><code>git commit --verbose</code></td>
+<td>Commit with a verbose output.</td>
+</tr>
+<tr class="even">
+<td><code>gca</code></td>
+<td><code>git commit --verbose --all</code></td>
+<td>Commit all changes with a verbose output.</td>
+</tr>
+<tr class="odd">
+<td><code>gca!</code></td>
+<td><code>git commit --verbose --all --amend</code></td>
+<td>Amend the previous commit with a verbose output.</td>
+</tr>
+<tr class="even">
+<td><code>gcan!</code></td>
+<td><code>git commit --verbose --all --no-edit --amend</code></td>
+<td>Amend the previous commit without changing the commit message.</td>
+</tr>
+<tr class="odd">
+<td><code>gcans!</code></td>
+<td><code>git commit --verbose --all --signoff --no-edit --amend</code></td>
+<td>Amend the previous commit with signoff without changing the commit message.</td>
+</tr>
+<tr class="even">
+<td><code>gc!</code></td>
+<td><code>git commit --verbose --amend</code></td>
+<td>Amend the previous commit with a verbose output.</td>
+</tr>
+<tr class="odd">
+<td><code>gcn!</code></td>
+<td><code>git commit --verbose --no-edit --amend</code></td>
+<td>Amend the previous commit without changing the commit message.</td>
+</tr>
+<tr class="even">
+<td><code>gcs</code></td>
+<td><code>git commit -S</code></td>
+<td>Commit with GPG signature.</td>
+</tr>
+<tr class="odd">
+<td><code>gcss</code></td>
+<td><code>git commit -S -s</code></td>
+<td>Commit with GPG signature and include the signoff.</td>
+</tr>
+<tr class="even">
+<td><code>gcssm</code></td>
+<td><code>git commit -S -s -m</code></td>
+<td>Commit with GPG signature, signoff, and a specified message.</td>
+</tr>
+<tr class="odd">
+<td><code>gcf</code></td>
+<td><code>git config --list</code></td>
+<td>List all git configurations.</td>
+</tr>
+<tr class="even">
+<td><code>gdct</code></td>
+<td><code>git describe --tags $(git rev-list --tags --max-count=1)</code></td>
+<td>Show the most recent tag reachable from a commit.</td>
+</tr>
+<tr class="odd">
+<td><code>gd</code></td>
+<td><code>git diff</code></td>
+<td>Show changes between commits, commit and working tree, etc.</td>
+</tr>
+<tr class="even">
+<td><code>gdca</code></td>
+<td><code>git diff --cached</code></td>
+<td>Show changes between the index and the HEAD commit.</td>
+</tr>
+<tr class="odd">
+<td><code>gdcw</code></td>
+<td><code>git diff --cached --word-diff</code></td>
+<td>Show changes between the index and the HEAD commit with word-level diff.</td>
+</tr>
+<tr class="even">
+<td><code>gds</code></td>
+<td><code>git diff --staged</code></td>
+<td>Show changes in the staging area.</td>
+</tr>
+<tr class="odd">
+<td><code>gdw</code></td>
+<td><code>git diff --word-diff</code></td>
+<td>Show changes in the working tree with word-level diff.</td>
+</tr>
+<tr class="even">
+<td><code>gdv</code></td>
+<td><code>git diff -w "$@" \| view -</code></td>
+<td>Show changes in the working tree with word-level diff in a viewer.</td>
+</tr>
+<tr class="odd">
+<td><code>gdup</code></td>
+<td><code>git diff @{upstream}</code></td>
+<td>Show changes between the local branch and its upstream branch.</td>
+</tr>
+<tr class="even">
+<td><code>gdnolock</code></td>
+<td><code>git diff $@ ":(exclude)package-lock.json" ":(exclude)\*.lock"</code></td>
+<td>Show changes excluding specific file patterns.</td>
+</tr>
+<tr class="odd">
+<td><code>gdt</code></td>
+<td><code>git diff-tree --no-commit-id --name-only -r</code></td>
+<td>Show names of changed files given two commit IDs.</td>
+</tr>
+<tr class="even">
+<td><code>gf</code></td>
+<td><code>git fetch</code></td>
+<td>Download objects and refs from another repository.</td>
+</tr>
+<tr class="odd">
+<td><code>gfa</code></td>
+<td><code>git fetch --all --prune</code></td>
+<td>Fetch all remotes and prune references to deleted branches.</td>
+</tr>
+<tr class="even">
+<td><code>gfo</code></td>
+<td><code>git fetch origin</code></td>
+<td>Fetch from the remote named origin.</td>
+</tr>
+<tr class="odd">
+<td><code>gg</code></td>
+<td><code>git gui citool</code></td>
+<td>Start the Git GUI citool interface.</td>
+</tr>
+<tr class="even">
+<td><code>gga</code></td>
+<td><code>git gui citool --amend</code></td>
+<td>Start the Git GUI citool interface for amending changes.</td>
+</tr>
+<tr class="odd">
+<td><code>ghh</code></td>
+<td><code>git help</code></td>
+<td>Show help information about Git.</td>
+</tr>
+<tr class="even">
+<td><code>glgg</code></td>
+<td><code>git log --graph</code></td>
+<td>Show the commit history with a text-based graph.</td>
+</tr>
+<tr class="odd">
+<td><code>glgga</code></td>
+<td><code>git log --graph --decorate --all</code></td>
+<td>Show the commit history with a decorated graph and all branches.</td>
+</tr>
+<tr class="even">
+<td><code>glgm</code></td>
+<td><code>git log --graph --max-count=10</code></td>
+<td>Show the commit history with a graph limited to 10 commits.</td>
+</tr>
+<tr class="odd">
+<td><code>glod</code></td>
+<td><code>git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)&lt;%an&gt;%Creset'</code></td>
+<td>Show the commit history with a decorated graph and date.</td>
+</tr>
+<tr class="even">
+<td><code>glods</code></td>
+<td><code>git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)&lt;%an&gt;%Creset' --date=short</code></td>
+<td>Show the commit history with a decorated graph, date in short format.</td>
+</tr>
+<tr class="odd">
+<td><code>glol</code></td>
+<td><code>git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)&lt;%an&gt;%Creset'</code></td>
+<td>Show the commit history with a decorated graph and relative date.</td>
+</tr>
+<tr class="even">
+<td><code>glola</code></td>
+<td><code>git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)&lt;%an&gt;%Creset' --all</code></td>
+<td>Show the commit history with a decorated graph, relative date, and all references.</td>
+</tr>
+<tr class="odd">
+<td><code>glols</code></td>
+<td><code>git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)&lt;%an&gt;%Creset' --stat</code></td>
+<td>Show the commit history with a decorated graph, relative date, and file stats.</td>
+</tr>
+<tr class="even">
+<td><code>glo</code></td>
+<td><code>git log --oneline --decorate</code></td>
+<td>Show the commit history in one line with decorations.</td>
+</tr>
+<tr class="odd">
+<td><code>glog</code></td>
+<td><code>git log --oneline --decorate --graph</code></td>
+<td>Show the commit history in one line with decorations and a graph.</td>
+</tr>
+<tr class="even">
+<td><code>gloga</code></td>
+<td><code>git log --oneline --decorate --graph --all</code></td>
+<td>Show the commit history in one line with decorations, a graph, and all references.</td>
+</tr>
+<tr class="odd">
+<td><code>glp</code></td>
+<td><code>git log --pretty=&lt;format&gt;</code></td>
+<td>Show the commit history with custom-defined format.</td>
+</tr>
+<tr class="even">
+<td><code>glg</code></td>
+<td><code>git log --stat</code></td>
+<td>Show the commit history with stats.</td>
+</tr>
+<tr class="odd">
+<td><code>glgp</code></td>
+<td><code>git log --stat --patch</code></td>
+<td>Show the commit history with stats and patch information.</td>
+</tr>
+<tr class="even">
+<td><code>gignored</code></td>
+<td><code>git ls-files -v \| grep "^[[:lower:]]"</code></td>
+<td>List ignored files in the repository.</td>
+</tr>
+<tr class="odd">
+<td><code>gfg</code></td>
+<td><code>git ls-files \| grep</code></td>
+<td>Search for files in the repository.</td>
+</tr>
+<tr class="even">
+<td><code>gm</code></td>
+<td><code>git merge</code></td>
+<td>Merge changes from another branch into the current branch.</td>
+</tr>
+<tr class="odd">
+<td><code>gma</code></td>
+<td><code>git merge --abort</code></td>
+<td>Abort an ongoing merge operation.</td>
+</tr>
+<tr class="even">
+<td><code>gms</code></td>
+<td><code>git merge --squash</code></td>
+<td>Merge changes but do not commit the result.</td>
+</tr>
+<tr class="odd">
+<td><code>gmom</code></td>
+<td><code>git merge origin/$(git_main_branch)</code></td>
+<td>Merge changes from the main branch of the origin repository into the current branch.</td>
+</tr>
+<tr class="even">
+<td><code>gmum</code></td>
+<td><code>git merge upstream/$(git_main_branch)</code></td>
+<td>Merge changes from the main branch of the upstream repository into the current branch.</td>
+</tr>
+<tr class="odd">
+<td><code>gmtl</code></td>
+<td><code>git mergetool --no-prompt</code></td>
+<td>Launch the merge tool to resolve conflicts without prompts.</td>
+</tr>
+<tr class="even">
+<td><code>gmtlvim</code></td>
+<td><code>git mergetool --no-prompt --tool=vimdiff</code></td>
+<td>Launch Vim as the merge tool to resolve conflicts without prompts.</td>
+</tr>
+<tr class="odd">
+<td><code>gl</code></td>
+<td><code>git pull</code></td>
+<td>Fetch and integrate changes from a remote repository into the current branch.</td>
+</tr>
+<tr class="even">
+<td><code>gpr</code></td>
+<td><code>git pull --rebase</code></td>
+<td>Fetch changes and rebase the current branch onto the fetched changes.</td>
+</tr>
+<tr class="odd">
+<td><code>gprv</code></td>
+<td><code>git pull --rebase -v</code></td>
+<td>Fetch changes, rebase with verbose output.</td>
+</tr>
+<tr class="even">
+<td><code>gpra</code></td>
+<td><code>git pull --rebase --autostash</code></td>
+<td>Fetch changes, rebase, and stash local modifications automatically.</td>
+</tr>
+<tr class="odd">
+<td><code>gprav</code></td>
+<td><code>git pull --rebase --autostash -v</code></td>
+<td>Fetch changes, rebase with verbose output, and stash local modifications automatically.</td>
+</tr>
+<tr class="even">
+<td><code>gprom</code></td>
+<td><code>git pull --rebase origin $(git_main_branch)</code></td>
+<td>Fetch changes from the main branch of the origin repository and rebase onto it.</td>
+</tr>
+<tr class="odd">
+<td><code>gpromi</code></td>
+<td><code>git pull --rebase=interactive origin $(git_main_branch)</code></td>
+<td>Fetch changes from the main branch of the origin repository and rebase interactively onto it.</td>
+</tr>
+<tr class="even">
+<td><code>ggpull</code></td>
+<td><code>git pull origin "$(git_current_branch)"</code></td>
+<td>Pull changes from the current branch on the remote repository to the current local branch.</td>
+</tr>
+<tr class="odd">
+<td><code>ggl</code></td>
+<td><code>git pull origin $(current_branch)</code></td>
+<td>Pull changes from the current branch on the remote repository to the current local branch.</td>
+</tr>
+<tr class="even">
+<td><code>gluc</code></td>
+<td><code>git pull upstream $(git_current_branch)</code></td>
+<td>Pull changes from the current branch on the upstream repository to the current local branch.</td>
+</tr>
+<tr class="odd">
+<td><code>glum</code></td>
+<td><code>git pull upstream $(git_main_branch)</code></td>
+<td>Pull changes from the main branch on the upstream repository to the current local branch.</td>
+</tr>
+<tr class="even">
+<td><code>gp</code></td>
+<td><code>git push</code></td>
+<td>Update remote references along with associated objects.</td>
+</tr>
+<tr class="odd">
+<td><code>gpd</code></td>
+<td><code>git push --dry-run</code></td>
+<td>Simulate a push operation, showing what would be pushed.</td>
+</tr>
+<tr class="even">
+<td><code>gpf!</code></td>
+<td><code>git push --force</code></td>
+<td>Forcefully push commits to the remote repository, overwriting history.</td>
+</tr>
+<tr class="odd">
+<td><code>ggf</code></td>
+<td><code>git push --force origin $(current_branch)</code></td>
+<td>Forcefully push the current local branch to the remote repository, overwriting history.</td>
+</tr>
+<tr class="even">
+<td><code>gpf</code></td>
+<td>On Git &gt;= 2.30: <code>git push --force-with-lease --force-if-includes</code></td>
+<td>Safely force-push commits by considering the remote state.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>On Git &lt; 2.30: <code>git push --force-with-lease</code></td>
+<td>Safely force-push commits by considering the remote state (for versions earlier than Git 2.30).</td>
+</tr>
+<tr class="even">
+<td><code>ggfl</code></td>
+<td><code>git push --force-with-lease origin $(current_branch)</code></td>
+<td>Safely force-push the current local branch to the remote repository, considering the remote state.</td>
+</tr>
+<tr class="odd">
+<td><code>gpsup</code></td>
+<td><code>git push --set-upstream origin $(git_current_branch)</code></td>
+<td>Push changes and set the upstream reference for the current branch on the remote repository.</td>
+</tr>
+<tr class="even">
+<td><code>gpsupf</code></td>
+<td>On Git &gt;= 2.30: <code>git push --set-upstream origin $(git_current_branch) --force-with-lease --force-if-includes</code></td>
+<td>Push changes and set the upstream reference for the current branch, safely considering the remote state.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>On Git &lt; 2.30: <code>git push --set-upstream origin $(git_current_branch) --force-with-lease</code></td>
+<td>Push changes and set the upstream reference for the current branch, safely considering the remote state (for versions earlier than Git 2.30).</td>
+</tr>
+<tr class="even">
+<td><code>gpv</code></td>
+<td><code>git push --verbose</code></td>
+<td>Push changes to the remote repository with verbose output.</td>
+</tr>
+<tr class="odd">
+<td><code>gpoat</code></td>
+<td><code>git push origin --all &amp;&amp; git push origin --tags</code></td>
+<td>Push all branches and tags to the remote repository.</td>
+</tr>
+<tr class="even">
+<td><code>gpod</code></td>
+<td><code>git push origin --delete</code></td>
+<td>Delete a branch on the remote repository.</td>
+</tr>
+<tr class="odd">
+<td><code>ggpush</code></td>
+<td><code>git push origin "$(git_current_branch)"</code></td>
+<td>Push the current branch to the remote repository.</td>
+</tr>
+<tr class="even">
+<td><code>ggp</code></td>
+<td><code>git push origin $(current_branch)</code></td>
+<td>Push the current branch to the remote repository.</td>
+</tr>
+<tr class="odd">
+<td><code>gpu</code></td>
+<td><code>git push upstream</code></td>
+<td>Push changes to the upstream repository.</td>
+</tr>
+<tr class="even">
+<td><code>grb</code></td>
+<td><code>git rebase</code></td>
+<td>Reapply commits on top of another base tip.</td>
+</tr>
+<tr class="odd">
+<td><code>grba</code></td>
+<td><code>git rebase --abort</code></td>
+<td>Abort an ongoing rebase operation.</td>
+</tr>
+<tr class="even">
+<td><code>grbc</code></td>
+<td><code>git rebase --continue</code></td>
+<td>Continue a rebase operation after resolving conflicts.</td>
+</tr>
+<tr class="odd">
+<td><code>grbi</code></td>
+<td><code>git rebase --interactive</code></td>
+<td>Rebase interactively to modify commit history.</td>
+</tr>
+<tr class="even">
+<td><code>grbo</code></td>
+<td><code>git rebase --onto</code></td>
+<td>Rebase onto a new base.</td>
+</tr>
+<tr class="odd">
+<td><code>grbs</code></td>
+<td><code>git rebase --skip</code></td>
+<td>Skip applying a commit during a rebase operation.</td>
+</tr>
+<tr class="even">
+<td><code>grbd</code></td>
+<td><code>git rebase $(git_develop_branch)</code></td>
+<td>Rebase changes from the development branch onto the current branch.</td>
+</tr>
+<tr class="odd">
+<td><code>grbm</code></td>
+<td><code>git rebase $(git_main_branch)</code></td>
+<td>Rebase changes from the main branch onto the current branch.</td>
+</tr>
+<tr class="even">
+<td><code>grbom</code></td>
+<td><code>git rebase origin/$(git_main_branch)</code></td>
+<td>Rebase changes from the main branch of the origin repository onto the current branch.</td>
+</tr>
+<tr class="odd">
+<td><code>gr</code></td>
+<td><code>git remote</code></td>
+<td>Manage set of tracked repositories.</td>
+</tr>
+<tr class="even">
+<td><code>grv</code></td>
+<td><code>git remote --verbose</code></td>
+<td>List remote repositories with URLs after each name.</td>
+</tr>
+<tr class="odd">
+<td><code>gra</code></td>
+<td><code>git remote add</code></td>
+<td>Add a new remote.</td>
+</tr>
+<tr class="even">
+<td><code>grrm</code></td>
+<td><code>git remote remove</code></td>
+<td>Remove a remote.</td>
+</tr>
+<tr class="odd">
+<td><code>grmv</code></td>
+<td><code>git remote rename</code></td>
+<td>Rename a remote.</td>
+</tr>
+<tr class="even">
+<td><code>grset</code></td>
+<td><code>git remote set-url</code></td>
+<td>Set URLs of a remote.</td>
+</tr>
+<tr class="odd">
+<td><code>grup</code></td>
+<td><code>git remote update</code></td>
+<td>Fetch updates from a remote.</td>
+</tr>
+<tr class="even">
+<td><code>grh</code></td>
+<td><code>git reset</code></td>
+<td>Reset current HEAD to the specified state.</td>
+</tr>
+<tr class="odd">
+<td><code>gru</code></td>
+<td><code>git reset --</code></td>
+<td>Reset current HEAD to the last commit, keeping changes unstaged.</td>
+</tr>
+<tr class="even">
+<td><code>grhh</code></td>
+<td><code>git reset --hard</code></td>
+<td>Reset current HEAD to the specified state, discarding changes.</td>
+</tr>
+<tr class="odd">
+<td><code>grhk</code></td>
+<td><code>git reset --keep</code></td>
+<td>Reset current HEAD to a commit, keeping changes in the working directory.</td>
+</tr>
+<tr class="even">
+<td><code>grhs</code></td>
+<td><code>git reset --soft</code></td>
+<td>Reset current HEAD to a commit, keeping changes staged.</td>
+</tr>
+<tr class="odd">
+<td><code>gpristine</code></td>
+<td><code>git reset --hard &amp;&amp; git clean -dffx</code></td>
+<td>Reset to HEAD and remove untracked files and directories.</td>
+</tr>
+<tr class="even">
+<td><code>groh</code></td>
+<td><code>git reset origin/$(git_current_branch) --hard</code></td>
+<td>Reset to the state of the current branch in the origin repository.</td>
+</tr>
+<tr class="odd">
+<td><code>grs</code></td>
+<td><code>git restore</code></td>
+<td>Restore working tree files.</td>
+</tr>
+<tr class="even">
+<td><code>grss</code></td>
+<td><code>git restore --source</code></td>
+<td>Restore files from a given source.</td>
+</tr>
+<tr class="odd">
+<td><code>grst</code></td>
+<td><code>git restore --staged</code></td>
+<td>Unstage changes from the staging area.</td>
+</tr>
+<tr class="even">
+<td><code>gunwip</code></td>
+<td><code>git rev-list --max-count=1 --format="%s" HEAD \| grep -q "--wip--" &amp;&amp; git reset HEAD~1</code></td>
+<td>Undo the last commit if the commit message includes “–wip–”.</td>
+</tr>
+<tr class="odd">
+<td><code>grev</code></td>
+<td><code>git revert</code></td>
+<td>Revert changes made in a commit or a range of commits.</td>
+</tr>
+<tr class="even">
+<td><code>grm</code></td>
+<td><code>git rm</code></td>
+<td>Remove files from the working tree and from the index.</td>
+</tr>
+<tr class="odd">
+<td><code>grmc</code></td>
+<td><code>git rm --cached</code></td>
+<td>Remove files from the index, but keep them in the working directory.</td>
+</tr>
+<tr class="even">
+<td><code>gcount</code></td>
+<td><code>git shortlog --summary -n</code></td>
+<td>Count commits by each contributor.</td>
+</tr>
+<tr class="odd">
+<td><code>gsh</code></td>
+<td><code>git show</code></td>
+<td>Show various types of objects.</td>
+</tr>
+<tr class="even">
+<td><code>gsps</code></td>
+<td><code>git show --pretty=short --show-signature</code></td>
+<td>Show a short format with GPG signature information.</td>
+</tr>
+<tr class="odd">
+<td><code>gstall</code></td>
+<td><code>git stash --all</code></td>
+<td>Stash changes including untracked files.</td>
+</tr>
+<tr class="even">
+<td><code>gstu</code></td>
+<td><code>git stash --include-untracked</code></td>
+<td>Stash changes including untracked files.</td>
+</tr>
+<tr class="odd">
+<td><code>gstaa</code></td>
+<td><code>git stash apply</code></td>
+<td>Apply the latest stash.</td>
+</tr>
+<tr class="even">
+<td><code>gstc</code></td>
+<td><code>git stash clear</code></td>
+<td>Remove all stashed entries.</td>
+</tr>
+<tr class="odd">
+<td><code>gstd</code></td>
+<td><code>git stash drop</code></td>
+<td>Drop a specific stash.</td>
+</tr>
+<tr class="even">
+<td><code>gstl</code></td>
+<td><code>git stash list</code></td>
+<td>List all stashes.</td>
+</tr>
+<tr class="odd">
+<td><code>gstp</code></td>
+<td><code>git stash pop</code></td>
+<td>Apply and remove a stash from the stack.</td>
+</tr>
+<tr class="even">
+<td><code>gsta</code></td>
+<td>On Git &gt;= 2.13: <code>git stash push</code></td>
+<td>Stash changes in the working directory.</td>
+</tr>
+<tr class="odd">
+<td><code>gsta</code></td>
+<td>On Git &lt; 2.13: <code>git stash save</code></td>
+<td>Stash changes in the working directory.</td>
+</tr>
+<tr class="even">
+<td><code>gsts</code></td>
+<td><code>git stash show --patch</code></td>
+<td>Show content changes of a stash.</td>
+</tr>
+<tr class="odd">
+<td><code>gst</code></td>
+<td><code>git status</code></td>
+<td>Show the working tree status.</td>
+</tr>
+<tr class="even">
+<td><code>gss</code></td>
+<td><code>git status --short</code></td>
+<td>Show the short status of the working tree.</td>
+</tr>
+<tr class="odd">
+<td><code>gsb</code></td>
+<td><code>git status --short -b</code></td>
+<td>Show the short status of the working tree along with the branch name.</td>
+</tr>
+<tr class="even">
+<td><code>gsi</code></td>
+<td><code>git submodule init</code></td>
+<td>Initialize submodules in the repository.</td>
+</tr>
+<tr class="odd">
+<td><code>gsu</code></td>
+<td><code>git submodule update</code></td>
+<td>Update registered submodules to match the specified commit.</td>
+</tr>
+<tr class="even">
+<td><code>gsd</code></td>
+<td><code>git svn dcommit</code></td>
+<td>Commit to an SVN repository using git.</td>
+</tr>
+<tr class="odd">
+<td><code>git-svn-dcommit-push</code></td>
+<td><code>git svn dcommit &amp;&amp; git push github $(git_main_branch):svntrunk</code></td>
+<td>Commit changes to an SVN repository and push to GitHub.</td>
+</tr>
+<tr class="even">
+<td><code>gsr</code></td>
+<td><code>git svn rebase</code></td>
+<td>Rebase the current branch onto the SVN remote branch.</td>
+</tr>
+<tr class="odd">
+<td><code>gsw</code></td>
+<td><code>git switch</code></td>
+<td>Switch branches or restore working tree files.</td>
+</tr>
+<tr class="even">
+<td><code>gswc</code></td>
+<td><code>git switch -c</code></td>
+<td>Create and switch to a new branch.</td>
+</tr>
+<tr class="odd">
+<td><code>gswd</code></td>
+<td><code>git switch $(git_develop_branch)</code></td>
+<td>Switch to the development branch.</td>
+</tr>
+<tr class="even">
+<td><code>gswm</code></td>
+<td><code>git switch $(git_main_branch)</code></td>
+<td>Switch to the main branch.</td>
+</tr>
+<tr class="odd">
+<td><code>gta</code></td>
+<td><code>git tag --annotate</code></td>
+<td>Create an annotated tag.</td>
+</tr>
+<tr class="even">
+<td><code>gts</code></td>
+<td><code>git tag -s</code></td>
+<td>Create a signed tag.</td>
+</tr>
+<tr class="odd">
+<td><code>gtv</code></td>
+<td><code>git tag \| sort -V</code></td>
+<td>List tags sorted by version.</td>
+</tr>
+<tr class="even">
+<td><code>gignore</code></td>
+<td><code>git update-index --assume-unchanged</code></td>
+<td>Ignore changes to a tracked file.</td>
+</tr>
+<tr class="odd">
+<td><code>gunignore</code></td>
+<td><code>git update-index --no-assume-unchanged</code></td>
+<td>Stop ignoring changes to a tracked file.</td>
+</tr>
+<tr class="even">
+<td><code>gwch</code></td>
+<td><code>git whatchanged -p --abbrev-commit --pretty=medium</code></td>
+<td>Show logs with content differences, abbreviating commit IDs and using a medium output format.</td>
+</tr>
+<tr class="odd">
+<td><code>gwt</code></td>
+<td><code>git worktree</code></td>
+<td>Manage multiple working trees.</td>
+</tr>
+<tr class="even">
+<td><code>gwtls</code></td>
+<td><code>git worktree list</code></td>
+<td>List all linked working trees.</td>
+</tr>
+<tr class="odd">
+<td><code>gwtmv</code></td>
+<td><code>git worktree move</code></td>
+<td>Move a working tree to a new path.</td>
+</tr>
+<tr class="even">
+<td><code>gwtrm</code></td>
+<td><code>git worktree remove</code></td>
+<td>Remove a working tree.</td>
+</tr>
+<tr class="odd">
+<td><code>gk</code></td>
+<td><code>gitk --all --branches &amp;!</code></td>
+<td>Open gitk showing all branches.</td>
+</tr>
+<tr class="even">
+<td><code>gke</code></td>
+<td><code>gitk --all $(git log --walk-reflogs --pretty=%h) &amp;!</code></td>
+<td>Open gitk showing all history, including reflogs.</td>
+</tr>
+<tr class="odd">
+<td><code>gtl</code></td>
+<td><code>gtl(){ git tag --sort=-v:refname -n --list ${1}\* }; noglob gtl</code></td>
+<td>List tags, sorted by version, and filter by provided prefix.</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
