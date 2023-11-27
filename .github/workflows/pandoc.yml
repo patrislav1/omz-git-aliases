@@ -2,6 +2,9 @@ name: Publish on GitHub Pages
 
 on: push
 
+permissions:
+  contents: write
+
 jobs:
   publish_github_pages:
     runs-on: ubuntu-22.04
